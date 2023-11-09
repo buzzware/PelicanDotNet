@@ -10,13 +10,15 @@
 	x:DataType="views:MainViewModel"
 	HorizontalAlignment="Stretch"
 	VerticalAlignment="Stretch"
+	Content="{Binding Router.CurrentPage}"
+	Router="{Binding Router}"
 >
-	<pelican:NavigationStackView.Content>
-		<Grid ColumnDefinitions="*,*">
-			<Rectangle Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Green"/>
-			<Rectangle Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Yellow"/>
-		</Grid>
-	</pelican:NavigationStackView.Content>
+	<!-- <pelican:NavigationStackView.Content> -->
+	<!-- 	<Grid ColumnDefinitions="*,*"> -->
+	<!-- 		<Rectangle Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Green"/> -->
+	<!-- 		<Rectangle Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Yellow"/> -->
+	<!-- 	</Grid> -->
+	<!-- </pelican:NavigationStackView.Content> -->
 </pelican:NavigationStackView>
 
 
