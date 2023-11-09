@@ -41,7 +41,7 @@ public partial class NavigationStackView : UserControl {
 		// }
 	}
 
-	public void TransitionToPage(IPelicanPage? page) {
-		Content = page;
-	}
+	// public void TransitionToPage(IPelicanPage? page) {
+	// 	Content = page;
+	// }
 }

@@ -14,5 +14,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Pelican\Pelican.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="PlayTemplate.axaml.cs">
+      <DependentUpon>PlayTemplate.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
   
 </Project>

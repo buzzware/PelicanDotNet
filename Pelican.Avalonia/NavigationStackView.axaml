@@ -3,9 +3,67 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:pelican="clr-namespace:Pelican.Avalonia"
 	mc:Ignorable="d"
 	d:DesignWidth="800"
 	d:DesignHeight="450"
 	x:Class="Pelican.Avalonia.NavigationStackView"
 >
+	<UserControl.Template>
+		<ControlTemplate>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+					
+				<Grid
+					Grid.Row="0"
+					Height="40"
+					HorizontalAlignment="Stretch"
+					ColumnDefinitions="40,*"
+				>
+					<Rectangle
+						Grid.Column="0"
+						Grid.Row="0"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						Fill="Red"
+					/>
+					<TextBlock
+						Grid.Column="1"
+						Text="Hello" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				</Grid>
+					
+				<!-- <ContentPresenter Grid.Row="1" Name="fred" -->
+				<!-- 	ContentTemplate="{TemplateBinding ContentTemplate}" -->
+				<!-- 	Content="{TemplateBinding Content}" -->
+				<!-- 	VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" -->
+				<!-- 	HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" -->
+				<!-- /> -->
+						
+				<!-- <ContentPresenter  -->
+				<!-- 	Grid.Row="1"  -->
+				<!-- 	Content="{TemplateBinding Content}" -->
+				<!-- /> -->
+						
+				<ContentPresenter 
+					Grid.Row="1" 
+					Content="{TemplateBinding Content}"
+				/>
+						
+			</Grid>
+		</ControlTemplate>
+		
+	</UserControl.Template>
+	
+	
+
+	<!-- <UserControl.Content> -->
+	<!-- 	<Grid ColumnDefinitions="*,*"> -->
+	<!-- 		<Rectangle Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Green"/> -->
+	<!-- 		<Rectangle Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Yellow"/> -->
+	<!-- 	</Grid> -->
+	<!-- </UserControl.Content> -->
+	
 </UserControl>
