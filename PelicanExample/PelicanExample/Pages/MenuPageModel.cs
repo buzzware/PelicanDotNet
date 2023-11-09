@@ -1,12 +1,9 @@
-using System.ComponentModel.Design;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Avalonia.Logging;
-using AvaloniaCrossApp.Utilities;
 using CommunityToolkit.Mvvm.Input;
-using Serilog;
+using PelicanExample.Utilities;
 
-namespace AvaloniaCrossApp; 
+namespace PelicanExample.Pages; 
 
 public class MenuPageModel : PageModel {
 	

@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace AvaloniaCrossApp;
+namespace PelicanExample.Views;
 
 public partial class MainWindow : Window
 {

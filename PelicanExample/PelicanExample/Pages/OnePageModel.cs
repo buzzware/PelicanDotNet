@@ -1,6 +1,6 @@
-using AvaloniaCrossApp.Utilities;
+using PelicanExample.Utilities;
 
-namespace AvaloniaCrossApp; 
+namespace PelicanExample.Pages; 
 
 public class OnePageModel : PageModel {
 	

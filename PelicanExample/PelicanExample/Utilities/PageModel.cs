@@ -1,4 +1,4 @@
-namespace AvaloniaCrossApp.Utilities; 
+namespace PelicanExample.Utilities; 
 
 public class PageModel : ViewModelBase {
 	

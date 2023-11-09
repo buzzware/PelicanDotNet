@@ -4,7 +4,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.iOS;
 using Avalonia.Media;
-using Avalonia.ReactiveUI;
+
 
 namespace PelicanExample.iOS;
 
@@ -18,6 +18,7 @@ public partial class AppDelegate : AvaloniaAppDelegate<App>
     {
         return base.CustomizeAppBuilder(builder)
             .WithInterFont()
-            .UseReactiveUI();
+            //.UseReactiveUI()
+            ;
     }
 }

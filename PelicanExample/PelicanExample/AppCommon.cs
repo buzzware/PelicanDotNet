@@ -1,8 +1,6 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using AvaloniaCrossApp.Pelican;
+using Pelican;
 
-namespace AvaloniaCrossApp; 
+namespace PelicanExample; 
 
 public static class AppCommon {
 

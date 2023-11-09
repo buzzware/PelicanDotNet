@@ -1,15 +1,16 @@
-<app:NavigationStackView 
+<avalonia:NavigationStackView 
 	xmlns="https://github.com/avaloniaui"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:app="clr-namespace:AvaloniaCrossApp"
-	mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="700"
-  x:Class="AvaloniaCrossApp.MainView"
+  xmlns:views="clr-namespace:PelicanExample.Views"
+  xmlns:avalonia="clr-namespace:Pelican.Avalonia;assembly=Pelican.Avalonia"
+  mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="700"
+  x:Class="PelicanExample.Views.MainView"
 	Router="{Binding Router}"
-	x:DataType="app:MainViewModel"
+	x:DataType="views:MainViewModel"
 >
-	<app:NavigationStackView.DataContext>
-		<app:MainViewModel/>
-	</app:NavigationStackView.DataContext>
-</app:NavigationStackView>
+	<avalonia:NavigationStackView.DataContext>
+		<views:MainViewModel/>
+	</avalonia:NavigationStackView.DataContext>
+</avalonia:NavigationStackView>

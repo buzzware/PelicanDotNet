@@ -3,10 +3,8 @@ using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using AvaloniaCrossApp.Pelican;
-using AvaloniaCrossApp.Utilities;
 
-namespace AvaloniaCrossApp; 
+namespace Pelican.Avalonia; 
 
 public partial class NavigationStackView : UserControl {
 	public NavigationStackView() {
@@ -43,7 +41,7 @@ public partial class NavigationStackView : UserControl {
 		// }
 	}
 
-	public void TransitionToPage(Page? page) {
+	public void TransitionToPage(IPelicanPage? page) {
 		Content = page;
 	}
 }

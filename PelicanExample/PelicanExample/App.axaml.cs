@@ -1,8 +1,10 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using PelicanExample.Pages;
+using PelicanExample.Views;
 
-namespace AvaloniaCrossApp;
+namespace PelicanExample;
 
 public partial class App : Application
 {

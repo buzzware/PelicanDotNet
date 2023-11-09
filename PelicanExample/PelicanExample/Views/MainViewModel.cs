@@ -1,7 +1,7 @@
-﻿using AvaloniaCrossApp.Pelican;
-using AvaloniaCrossApp.Utilities;
+﻿using Pelican;
+using PelicanExample.Utilities;
 
-namespace AvaloniaCrossApp;
+namespace PelicanExample.Views;
 
 public class MainViewModel : ViewModelBase {
 	public PelicanRouter2 Router => AppCommon.Router;

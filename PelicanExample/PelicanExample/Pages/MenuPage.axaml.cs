@@ -1,6 +1,6 @@
-using AvaloniaCrossApp.Utilities;
+using PelicanExample.Utilities;
 
-namespace AvaloniaCrossApp; 
+namespace PelicanExample.Pages; 
 
 public partial class MenuPage : Page {
 	public MenuPage() {

@@ -1,7 +1,7 @@
 using Avalonia.Controls;
-using AvaloniaCrossApp.Pelican;
+using Pelican;
 
-namespace AvaloniaCrossApp.Utilities; 
+namespace PelicanExample.Utilities; 
 
 public class Page : UserControl, IPelicanPage {
 }

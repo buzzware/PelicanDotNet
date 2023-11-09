@@ -2,7 +2,6 @@
 using Android.Content.PM;
 using Avalonia;
 using Avalonia.Android;
-using Avalonia.ReactiveUI;
 
 namespace PelicanExample.Android;
 
@@ -18,6 +17,7 @@ public class MainActivity : AvaloniaMainActivity<App>
     {
         return base.CustomizeAppBuilder(builder)
             .WithInterFont()
-            .UseReactiveUI();
+            //.UseReactiveUI()
+            ;
     }
 }

@@ -1,6 +1,6 @@
-using Avalonia.Controls;
+using Pelican.Avalonia;
 
-namespace AvaloniaCrossApp;
+namespace PelicanExample.Views;
 
 public partial class MainView : NavigationStackView
 {

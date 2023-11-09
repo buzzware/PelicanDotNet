@@ -1,9 +1,6 @@
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-using AvaloniaCrossApp.Utilities;
+using PelicanExample.Utilities;
 
-namespace AvaloniaCrossApp; 
+namespace PelicanExample.Pages; 
 
 public partial class OnePage : Page {
 	public OnePage() {
