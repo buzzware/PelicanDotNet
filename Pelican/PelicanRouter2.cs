@@ -132,20 +132,21 @@ public class PelicanRouter2 : BindableBase {
 
 	private void OnRouteChanged() {
 		Log.Debug("OnRouteChanged");
+		RaisePropertyChanged(nameof(CanPop));
 	}
 
-	public async Task GoBack() {
-		if (CanGoBack()) {
-			State.Route = State.Route.PopSegment();
-		}
-		else {
-			throw new InvalidOperationException("No more routes to pop.");
-		}
-	}
-
-	public bool CanGoBack() {
-		return State.Route.Segments.Count > 1;
-	}
+	// public async Task GoBack() {
+	// 	if (CanGoBack()) {
+	// 		State.Route = State.Route.PopSegment();
+	// 	}
+	// 	else {
+	// 		throw new InvalidOperationException("No more routes to pop.");
+	// 	}
+	// }
+	//
+	// public bool CanGoBack() {
+	// 	return State.Route.Segments.Count > 1;
+	// }
 	
 	// public async Task ReplaceCurrentSegment(string segmentPath) {
 	// 	var segment = PelicanRouteSegment.FromPathSegment(segmentPath);
@@ -254,6 +255,8 @@ public class PelicanRouter2 : BindableBase {
 
 	
 	public async Task<PelicanRouteSegment> Pop(object? data = null) {
+		if (!CanPop)
+			throw new InvalidOperationException("No more routes to pop.");
 		var currentItem = _pageStack.LastOrDefault();
 		if (currentItem?.PageModel != null) {
 			var result = await currentItem.PageModel.OnExit(pushing: false);

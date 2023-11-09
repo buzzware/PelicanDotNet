@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Markup.Xaml;
 
 namespace Pelican.Avalonia; 
@@ -44,4 +45,7 @@ public partial class NavigationStackView : UserControl {
 	// public void TransitionToPage(IPelicanPage? page) {
 	// 	Content = page;
 	// }
+	private void InputElement_OnTapped(object? sender, TappedEventArgs e) {
+		Router?.Pop();
+	}
 }
