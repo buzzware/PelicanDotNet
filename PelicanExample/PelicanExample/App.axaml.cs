@@ -1,35 +1,32 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using PelicanExample.ViewModels;
-using PelicanExample.Views;
 
-namespace PelicanExample;
+namespace AvaloniaCrossApp;
 
 public partial class App : Application
 {
     public override void Initialize()
     {
+        AppCommon.Setup();
         AvaloniaXamlLoader.Load(this);
     }
 
     public override void OnFrameworkInitializationCompleted()
     {
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-        {
-            desktop.MainWindow = new MainWindow
-            {
-                DataContext = new MainViewModel()
+        var mainView = new MainView {
+            DataContext = new MainViewModel()
+        };
+        mainView.TransitionToPage(new MenuPage() {DataContext = new MenuPageModel()});
+        
+        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
+            desktop.MainWindow = new MainWindow {
+                DataContext = mainView.DataContext,
+                Content = mainView
             };
+        } else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform) {
+            singleViewPlatform.MainView = mainView;
         }
-        else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
-        {
-            singleViewPlatform.MainView = new MainView
-            {
-                DataContext = new MainViewModel()
-            };
-        }
-
         base.OnFrameworkInitializationCompleted();
     }
 }

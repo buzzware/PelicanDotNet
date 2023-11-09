@@ -1,8 +1,8 @@
 using Avalonia.Controls;
 
-namespace PelicanExample.Views;
+namespace AvaloniaCrossApp;
 
-public partial class MainView : UserControl
+public partial class MainView : NavigationStackView
 {
     public MainView()
     {
