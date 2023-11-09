@@ -19,7 +19,7 @@ public partial class App : Application
         var mainView = new MainView {
             DataContext = new MainViewModel()
         };
-        mainView.TransitionToPage(new MenuPage() {DataContext = new MenuPageModel()});
+        //mainView.TransitionToPage(new MenuPage() {DataContext = new MenuPageModel()});
         
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
             desktop.MainWindow = new MainWindow {

@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pelican", "..\Pelican\Pelic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pelican.Avalonia", "..\Pelican.Avalonia\Pelican.Avalonia.csproj", "{9FE4B60C-361D-4DB6-B0D5-3560FC019710}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PelicanTest", "..\PelicanTest\PelicanTest.csproj", "{CBF3C4CE-21B3-459A-8A32-0644492A08F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{9FE4B60C-361D-4DB6-B0D5-3560FC019710}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FE4B60C-361D-4DB6-B0D5-3560FC019710}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FE4B60C-361D-4DB6-B0D5-3560FC019710}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF3C4CE-21B3-459A-8A32-0644492A08F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF3C4CE-21B3-459A-8A32-0644492A08F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF3C4CE-21B3-459A-8A32-0644492A08F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF3C4CE-21B3-459A-8A32-0644492A08F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

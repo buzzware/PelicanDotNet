@@ -15,7 +15,7 @@
 		RowDefinitions="*,*"
 		ColumnDefinitions="*,*"
 	>
-		<Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding OneCommand}" CommandParameter="one">
+		<Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding PushCommand}" CommandParameter="one">
 			<TextBlock Text="One" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 		</Button>
 		<Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">

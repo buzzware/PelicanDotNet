@@ -1,21 +1,21 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
+using Pelican;
 using PelicanExample.Utilities;
 
 namespace PelicanExample.Pages; 
 
 public class MenuPageModel : PageModel {
 	
-	public string Greeting => "Welcome to Avalonia!";
-
-	public ICommand OneCommand { get; }
+	public ICommand PushCommand { get; }
 
 	public MenuPageModel() {
-		OneCommand = new AsyncRelayCommand<string>(OnOne);
+		PushCommand = new AsyncRelayCommand<string>(OnPush);
 	}
 
-	private async Task OnOne(string? arg) {
-		
+	private async Task OnPush(string? arg) {
+		if (arg != null)
+			await AppCommon.Router.Push(new PelicanRouteSegment(arg));
 	}
 }

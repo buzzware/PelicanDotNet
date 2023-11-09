@@ -1,4 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Pelican;
+using PelicanExample.Pages;
 
 namespace PelicanExample; 
 
@@ -7,15 +11,8 @@ public static class AppCommon {
 	public static PelicanRouter2 Router { get; private set; }
 	
 	public static void Setup() {
-		// Router = new PelicanRouter2(
-		// 	"menu",
-		// 	new RouteTable2(
-		// 		new Dictionary<string, SegmentPageBuilder>() {
-		// 			{ "menu", async (ctx) => ctx.Page(new MenuPage() {DataContext = new MenuPageModel()}) },
-		// 			{ "one", async (ctx) => ctx.Page(new OnePage() {DataContext = new OnePageModel()}) }
-		// 		}
-		// 	)
-		// );
+		Router = new PelicanRouter2(AppRoutes.RouteTable());
+		Router.Push(new PelicanRouteSegment(AppRoutes.MENU));
 	}
 
 

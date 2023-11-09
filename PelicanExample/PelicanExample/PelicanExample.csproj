@@ -23,4 +23,15 @@
     <ProjectReference Include="..\..\Pelican.Avalonia\Pelican.Avalonia.csproj" />
     <ProjectReference Include="..\..\Pelican\Pelican.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Pages\TwoPage.axaml.cs">
+      <DependentUpon>TwoPage.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\SettingsPage.axaml.cs">
+      <DependentUpon>SettingsPage.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
 </Project>
