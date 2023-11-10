@@ -7,23 +7,22 @@ public class RouteBuilder {
 	public IPelicanPageModel PageModel { get; private set; }
 	public IPelicanPage PageInstance { get; private set; }
 
-	public RouteBuilder Page<PageT, PageModelT>() {
+	public RouteBuilder Page<PageT, PageModelT>() where PageT : IPelicanPage {
 		PageInstance = (IPelicanPage)Activator.CreateInstance(typeof(PageT))!;
 		PageModel = (IPelicanPageModel)Activator.CreateInstance(typeof(PageModelT))!;
 		PageInstance.DataContext = PageModel;
 		return this;
 	}
 
-	public RouteBuilder Page<PageT>(IPelicanPageModel pageModel) {
+	public RouteBuilder Page<PageT>(IPelicanPageModel pageModel) where PageT : IPelicanPage {
 		PageInstance = (IPelicanPage)Activator.CreateInstance(typeof(PageT))!;
 		PageModel = pageModel;
 		PageInstance.DataContext = PageModel;
 		return this;
 	}
-
-
-	public RouteBuilder Page<T>() {
-		PageInstance = (IPelicanPage)Activator.CreateInstance(typeof(T))!;
+	
+	public RouteBuilder Page<PageT>() where PageT : IPelicanPage {
+		PageInstance = (IPelicanPage)Activator.CreateInstance(typeof(PageT))!;
 		if (PageInstance.DataContext == null)
 			PageInstance.DataContext = PageInstance;
 		return this;
