@@ -9,14 +9,19 @@
 	d:DesignWidth="40"
 	d:DesignHeight="40"
 	x:Class="Pelican.Avalonia.BackButton"
+	Foreground="White"
 	Tapped="InputElement_OnTapped"
 >
 	<Viewbox Stretch="UniformToFill">
 		<micons:MaterialIcon 
 			Kind="ChevronLeft" 
-			Foreground="White" 
 			Background="Transparent"
-			IsVisible="{Binding Router.CanPop, RelativeSource={RelativeSource AncestorType={x:Type pelican:BackButton}}}"
+			Foreground="White"
+			IsVisible="{Binding Router.CanBack, RelativeSource={RelativeSource AncestorType={x:Type pelican:BackButton}}}"
 		/>
 	</Viewbox>
 </Button>
+
+<!-- 
+			IsVisible="{Binding Router.CanBack, RelativeSource={RelativeSource AncestorType={x:Type pelican:BackButton}}}"
+-->

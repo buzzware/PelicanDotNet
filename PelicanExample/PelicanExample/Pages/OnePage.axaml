@@ -1,13 +1,24 @@
-<utilities:Page
+<DockPanel
 	xmlns="https://github.com/avaloniaui"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:utilities="clr-namespace:PelicanExample.Utilities"
+	xmlns:pages="clr-namespace:PelicanExample.Pages"
+	xmlns:pelican="clr-namespace:Pelican.Avalonia;assembly=Pelican.Avalonia"
 	mc:Ignorable="d"
 	d:DesignWidth="800"
 	d:DesignHeight="450"
 	x:Class="PelicanExample.Pages.OnePage"
+	x:DataType="pages:OnePageModel"
 >
-	Page One
-</utilities:Page>
+	<pelican:NavigationBar 
+		DockPanel.Dock="Top" Grid.Row="0" Grid.ColumnSpan="2"
+		Background="MidnightBlue"
+		Router="{Binding Router}"
+		>
+	</pelican:NavigationBar>
+	
+	<Rectangle Fill="Yellow"/>
+	
+</DockPanel>

@@ -5,12 +5,31 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:utilities="clr-namespace:PelicanExample.Utilities"
 	xmlns:pages="clr-namespace:PelicanExample.Pages"
+	xmlns:pelican="clr-namespace:Pelican.Avalonia;assembly=Pelican.Avalonia"
 	mc:Ignorable="d"
 	d:DesignWidth="800"
 	d:DesignHeight="450"
 	x:Class="PelicanExample.Pages.MenuPage"
 	x:DataType="pages:MenuPageModel"
 >
+	<pelican:NavigationBar 
+		DockPanel.Dock="Top" Grid.Row="0" Grid.ColumnSpan="2"
+		Background="MidnightBlue"
+		Router="{Binding Router}"
+		>
+		<!-- <pelican:NavigationBar.Template> -->
+		<!-- 	<ControlTemplate> -->
+		<!-- 		<StackPanel -->
+		<!-- 			Orientation="Horizontal" -->
+		<!-- 			HorizontalAlignment="Right" -->
+		<!-- 			Spacing="8" -->
+		<!-- 		> -->
+		<!-- 			<Button BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 1" Foreground="White"/></Button> -->
+		<!-- 			<Button BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 2" Foreground="White"/></Button> -->
+		<!-- 		</StackPanel> -->
+		<!-- 	</ControlTemplate>			 -->
+		<!-- </pelican:NavigationBar.Template> -->
+	</pelican:NavigationBar>
 	<Grid 
 		RowDefinitions="*,*"
 		ColumnDefinitions="*,*"

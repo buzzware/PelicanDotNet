@@ -7,13 +7,16 @@ using Avalonia.Markup.Xaml;
 namespace Pelican.Avalonia; 
 
 public partial class BackButton : Button {
+	
+	protected override Type StyleKeyOverride => typeof(Button); // this is required when subclassing a component for the subclass to work like its parent
+	
 	public BackButton() {
 		InitializeComponent();
 	}
 
 	private PelicanRouter2? _router;
-	public static readonly DirectProperty<NavigationStackView, PelicanRouter2?> RouterProperty =
-		AvaloniaProperty.RegisterDirect<NavigationStackView, PelicanRouter2?>(
+	public static readonly DirectProperty<BackButton, PelicanRouter2?> RouterProperty =
+		AvaloniaProperty.RegisterDirect<BackButton, PelicanRouter2?>(
 			nameof(Router),
 			o => o.Router,
 			(o, v) => o.Router = v);
