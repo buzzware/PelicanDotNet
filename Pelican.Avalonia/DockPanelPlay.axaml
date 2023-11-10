@@ -1,0 +1,37 @@
+<DockPanel
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:pelican="clr-namespace:Pelican.Avalonia"
+	mc:Ignorable="d"
+	d:DesignWidth="400"
+	d:DesignHeight="400"
+	x:Class="Pelican.Avalonia.DockPanelPlay"
+>
+	<Grid
+		x:Name="NavBar"
+		Height="40"
+		HorizontalAlignment="Stretch"
+		ColumnDefinitions="40,*,Auto"
+		DockPanel.Dock="Top"
+		Background="MidnightBlue"
+	>
+		<pelican:BackButton
+			Grid.Column="0"
+			/>
+		<TextBlock Grid.Column="1" Text="Title" Foreground="white" VerticalAlignment="Center"/>
+		<StackPanel 
+			Grid.Column="2" 
+			Orientation="Horizontal" 
+			HorizontalAlignment="Right"
+			Spacing="8"
+		>
+			<Button BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 1" Foreground="White"/></Button>
+			<Button BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 2" Foreground="White"/></Button>
+		</StackPanel>
+	</Grid>
+	
+	<Rectangle Fill="Bisque"></Rectangle>
+	
+</DockPanel>

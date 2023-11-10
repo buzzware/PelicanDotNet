@@ -1,0 +1,22 @@
+<Button
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:micons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+	xmlns:pelican="clr-namespace:Pelican.Avalonia"
+	mc:Ignorable="d"
+	d:DesignWidth="40"
+	d:DesignHeight="40"
+	x:Class="Pelican.Avalonia.BackButton"
+	Tapped="InputElement_OnTapped"
+>
+	<Viewbox Stretch="UniformToFill">
+		<micons:MaterialIcon 
+			Kind="ChevronLeft" 
+			Foreground="White" 
+			Background="Transparent"
+			IsVisible="{Binding Router.CanPop, RelativeSource={RelativeSource AncestorType={x:Type pelican:BackButton}}}"
+		/>
+	</Viewbox>
+</Button>
