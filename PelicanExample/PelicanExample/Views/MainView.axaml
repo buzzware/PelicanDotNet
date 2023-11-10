@@ -1,4 +1,4 @@
-<pelican:NavigationStackView 
+<UserControl
 	xmlns="https://github.com/avaloniaui"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,20 +11,10 @@
 	HorizontalAlignment="Stretch"
 	VerticalAlignment="Stretch"
 	Content="{Binding Router.CurrentPage}"
-	Router="{Binding Router}"
 >
-	<!-- <pelican:NavigationStackView.Content> -->
-	<!-- 	<Grid ColumnDefinitions="*,*"> -->
-	<!-- 		<Rectangle Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Green"/> -->
-	<!-- 		<Rectangle Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Yellow"/> -->
-	<!-- 	</Grid> -->
-	<!-- </pelican:NavigationStackView.Content> -->
-</pelican:NavigationStackView>
-
-
-
-<!--
-Content="{Binding Router.CurrentPage}"
-	Router="{Binding Router}"
-
--->
+	<UserControl.Template>
+		<ControlTemplate>
+			<ContentPresenter Content="{Binding Router.CurrentPage}"/>
+		</ControlTemplate>
+	</UserControl.Template>
+</UserControl>

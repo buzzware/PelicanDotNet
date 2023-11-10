@@ -1,11 +1,10 @@
-using Pelican.Avalonia;
+using Avalonia.Controls;
 
 namespace PelicanExample.Views;
 
-public partial class MainView : NavigationStackView
+public partial class MainView : UserControl
 {
-    public MainView()
-    {
+    public MainView() {
         InitializeComponent();
     }
 }
