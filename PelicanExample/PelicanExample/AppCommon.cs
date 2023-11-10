@@ -10,9 +10,9 @@ public static class AppCommon {
 
 	public static PelicanRouter2 Router { get; private set; }
 	
-	public static void Setup() {
+	public static async void Setup() {
 		Router = new PelicanRouter2(AppRoutes.RouteTable());
-		Router.Push(new PelicanRouteSegment(AppRoutes.MENU));
+		await Router.Push(new PelicanRouteSegment(AppRoutes.MENU));
 	}
 
 
