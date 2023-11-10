@@ -7,7 +7,7 @@ public class RouteBuilder {
 	public IPelicanPageModel PageModel { get; private set; }
 	public IPelicanPage PageInstance { get; private set; }
 
-	public RouteBuilder Page<PageT, PageModelT>() where PageT : IPelicanPage {
+	public RouteBuilder Page<PageT, PageModelT>() where PageT : IPelicanPage where PageModelT : IPelicanPageModel {
 		PageInstance = (IPelicanPage)Activator.CreateInstance(typeof(PageT))!;
 		PageModel = (IPelicanPageModel)Activator.CreateInstance(typeof(PageModelT))!;
 		PageInstance.DataContext = PageModel;

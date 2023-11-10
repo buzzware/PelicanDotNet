@@ -14,9 +14,4 @@ public static class AppCommon {
 		Router = new PelicanRouter2(AppRoutes.RouteTable());
 		await Router.Push(new PelicanRouteSegment(AppRoutes.MENU));
 	}
-
-
-	// public static async Task NavigatePush(string segment) {
-	// 	Router.Push(segment);
-	// }
 }
