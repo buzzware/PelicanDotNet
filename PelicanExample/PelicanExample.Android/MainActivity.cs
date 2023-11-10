@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System.Threading.Tasks;
+using Android.App;
 using Android.Content.PM;
 using Avalonia;
 using Avalonia.Android;
@@ -20,4 +21,10 @@ public class MainActivity : AvaloniaMainActivity<App>
             //.UseReactiveUI()
             ;
     }
+    
+    public override async void OnBackPressed()
+    {
+        if (!(await AppCommon.Router.HandleHardwareBackButton()))
+            base.OnBackPressed(); // This will terminate the app.
+    }    
 }

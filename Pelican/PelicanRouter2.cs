@@ -5,46 +5,6 @@ using Serilog;
 
 namespace Pelican;
 
-public class RouteBuilder {
-	
-	public PelicanRouteSegment Alias { get; private set; }
-	public PelicanRoute RedirectRoute { get; private set; }
-	public IPelicanPageModel PageModel { get; private set; }
-	public IPelicanPage PageInstance { get; private set; }
-
-	public RouteBuilder Page<PageT, PageModelT>() {
-		PageInstance = (IPelicanPage)Activator.CreateInstance(typeof(PageT))!;
-		PageModel = (IPelicanPageModel)Activator.CreateInstance(typeof(PageModelT))!;
-		PageInstance.DataContext = PageModel;
-		return this;
-	}
-
-	public RouteBuilder Page<PageT>(IPelicanPageModel pageModel) {
-		PageInstance = (IPelicanPage)Activator.CreateInstance(typeof(PageT))!;
-		PageModel = pageModel;
-		PageInstance.DataContext = PageModel;
-		return this;
-	}
-
-
-	public RouteBuilder Page<T>() {
-		PageInstance = (IPelicanPage)Activator.CreateInstance(typeof(T))!;
-		if (PageInstance.DataContext == null)
-			PageInstance.DataContext = PageInstance;
-		return this;
-	}
-
-	public RouteBuilder AliasTo(PelicanRouteSegment segment) {
-		Alias = segment;
-		return this;
-	}
-	
-	public RouteBuilder RedirectTo(PelicanRoute route) {
-		RedirectRoute = route;
-		return this;
-	}
-}
-
 public class RouteTable2 {
 	public Dictionary<string, Func<RouteBuilder, Task<RouteBuilder>>> Routes { get; }
 
@@ -91,6 +51,7 @@ public class PageStackRecord {
 }
 
 public class OnExitResult {
+	public bool Allowed = true;
 }
 
 
@@ -133,20 +94,8 @@ public class PelicanRouter2 : BindableBase {
 	private void OnRouteChanged() {
 		Log.Debug("OnRouteChanged");
 		RaisePropertyChanged(nameof(CanPop));
+		RaisePropertyChanged(nameof(CanBack));
 	}
-
-	// public async Task GoBack() {
-	// 	if (CanGoBack()) {
-	// 		State.Route = State.Route.PopSegment();
-	// 	}
-	// 	else {
-	// 		throw new InvalidOperationException("No more routes to pop.");
-	// 	}
-	// }
-	//
-	// public bool CanGoBack() {
-	// 	return State.Route.Segments.Count > 1;
-	// }
 	
 	// public async Task ReplaceCurrentSegment(string segmentPath) {
 	// 	var segment = PelicanRouteSegment.FromPathSegment(segmentPath);
@@ -235,6 +184,25 @@ public class PelicanRouter2 : BindableBase {
 	}
 
 	
+	// public async Task Goto(String path) {
+	//     var newPath = await RouteTable.ExecuteRedirects(path);
+	//     var route = new PelicanRoute(newPath);
+	//     if (route.Equals(State.Route))
+	//         return;
+	//     State.Route = route;
+	// }
+	//
+	// void Replace(String segmentPath) {
+	//  ReplaceSegment(PelicanRouteSegment.FromPathSegment(segmentPath));
+	// }
+
+	void Replace(PelicanRouteSegment segment) {
+		var route = State.Route.PopSegment();
+		route = route.PushSegment(segment);
+		State.Route = route;
+	}
+	
+	
 	public async Task Push(PelicanRouteSegment segment,object? data = null) {
 		var item = await ExecuteSegment(segment);
 		if (item == null)
@@ -254,12 +222,16 @@ public class PelicanRouter2 : BindableBase {
 	}
 
 	
-	public async Task<PelicanRouteSegment> Pop(object? data = null) {
+	bool CanPop => State.Route.Segments.Count > 0;
+	
+	public async Task<PelicanRouteSegment?> Pop(object? data = null) {
 		if (!CanPop)
 			throw new InvalidOperationException("No more routes to pop.");
 		var currentItem = _pageStack.LastOrDefault();
 		if (currentItem?.PageModel != null) {
 			var result = await currentItem.PageModel.OnExit(pushing: false);
+			if (!(result?.Allowed ?? true))
+				return null;
 		}
 		var segment = State.Pop();
 		_cacheRoute = State.Route;
@@ -271,25 +243,21 @@ public class PelicanRouter2 : BindableBase {
 		}
 		return segment;
 	}
+	
+	bool CanBack => State.Route.Segments.Count > 1;
 
-	bool CanPop => State.Route.Segments.Count > 1;
-
-	// public async Task Goto(String path) {
-	//     var newPath = await RouteTable.ExecuteRedirects(path);
-	//     var route = new PelicanRoute(newPath);
-	//     if (route.Equals(State.Route))
-	//         return;
-	//     State.Route = route;
-	// }
-	//
-	// void Replace(String segmentPath) {
-	//  ReplaceSegment(PelicanRouteSegment.FromPathSegment(segmentPath));
-	// }
-
-	void ReplaceSegment(PelicanRouteSegment segment) {
-		var route = State.Route.PopSegment();
-		route = route.PushSegment(segment);
-		State.Route = route;
+	// return true if popped
+	public async Task<bool> Back() {
+		if (!CanBack)
+			return false;
+		var result = await Pop();
+		return result != null;
+	} 
+	
+	// return true if handled or false to allow further handling ie leave app
+	public async Task<bool> HandleHardwareBackButton() {
+		await Back();
+		return true; // true if handled, otherwise false 
 	}
 }
 
