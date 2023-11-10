@@ -9,28 +9,33 @@
 	d:DesignHeight="400"
 	x:Class="Pelican.Avalonia.DockPanelPlay"
 >
-	<Grid
+	<!-- <Rectangle -->
+	<!-- 	HorizontalAlignment="Stretch" -->
+	<!-- 	Height="40" -->
+	<!-- 	Fill="Red" -->
+	<!-- 	DockPanel.Dock="Top" -->
+	<!-- 	/> -->
+	<pelican:NavigationBar
 		x:Name="NavBar"
-		Height="40"
 		HorizontalAlignment="Stretch"
-		ColumnDefinitions="40,*,Auto"
+		Height="40"
 		DockPanel.Dock="Top"
 		Background="MidnightBlue"
 	>
-		<pelican:BackButton
-			Grid.Column="0"
-			/>
-		<TextBlock Grid.Column="1" Text="Title" Foreground="white" VerticalAlignment="Center"/>
-		<StackPanel 
-			Grid.Column="2" 
-			Orientation="Horizontal" 
-			HorizontalAlignment="Right"
-			Spacing="8"
-		>
-			<Button BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 1" Foreground="White"/></Button>
-			<Button BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 2" Foreground="White"/></Button>
-		</StackPanel>
-	</Grid>
+		<pelican:NavigationBar.Template>
+				<ControlTemplate>
+					<StackPanel
+						Orientation="Horizontal"
+						HorizontalAlignment="Right"
+						Spacing="8"
+					>
+						<Button BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 1" Foreground="White"/></Button>
+						<Button BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 2" Foreground="White"/></Button>
+				</StackPanel>
+			</ControlTemplate>			
+		</pelican:NavigationBar.Template>
+	</pelican:NavigationBar>
+	
 	
 	<Rectangle Fill="Bisque"></Rectangle>
 	
