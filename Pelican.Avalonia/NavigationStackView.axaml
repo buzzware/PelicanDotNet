@@ -12,7 +12,9 @@
 >
 	<UserControl.Template>
 		<ControlTemplate>
-			<Grid>
+			<Grid
+				Background="{TemplateBinding Background}"
+			>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto"/>
 					<RowDefinition Height="*"/>

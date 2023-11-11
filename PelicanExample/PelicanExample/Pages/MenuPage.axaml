@@ -12,24 +12,40 @@
 	x:Class="PelicanExample.Pages.MenuPage"
 	x:DataType="pages:MenuPageModel"
 >
-	<pelican:NavigationBar 
+	<pelican:NavigationBar
 		DockPanel.Dock="Top" Grid.Row="0" Grid.ColumnSpan="2"
 		Background="MidnightBlue"
+		Foreground="White"
 		Router="{Binding Router}"
 		>
-		<!-- <pelican:NavigationBar.Template> -->
-		<!-- 	<ControlTemplate> -->
-		<!-- 		<StackPanel -->
-		<!-- 			Orientation="Horizontal" -->
-		<!-- 			HorizontalAlignment="Right" -->
-		<!-- 			Spacing="8" -->
-		<!-- 		> -->
-		<!-- 			<Button BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 1" Foreground="White"/></Button> -->
-		<!-- 			<Button BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 2" Foreground="White"/></Button> -->
-		<!-- 		</StackPanel> -->
-		<!-- 	</ControlTemplate>			 -->
-		<!-- </pelican:NavigationBar.Template> -->
+		<StackPanel
+			Orientation="Horizontal"
+			HorizontalAlignment="Right"
+			Background="Transparent"
+			Spacing="8"
+			Margin="8,0,8,0"
+		>
+			<Button Background="Transparent" BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 1" Foreground="White"/></Button>
+			<Button Background="Transparent" BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 2" Foreground="White"/></Button>
+		</StackPanel>
 	</pelican:NavigationBar>
+	
+	<!-- <pelican:Header -->
+	<!-- 	DockPanel.Dock="Top" Grid.Row="0" Grid.ColumnSpan="2" -->
+	<!-- 	Background="MidnightBlue" -->
+	<!-- 	Foreground="White" -->
+	<!-- > -->
+	<!-- 	<StackPanel -->
+	<!-- 		Orientation="Horizontal" -->
+	<!-- 		HorizontalAlignment="Right" -->
+	<!-- 		Background="Transparent" -->
+	<!-- 		Spacing="8" -->
+	<!-- 	> -->
+	<!-- 		<Button Background="Transparent" BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 1" Foreground="White"/></Button> -->
+	<!-- 		<Button Background="Transparent" BorderThickness="1" BorderBrush="White" VerticalAlignment="Center"><TextBlock Text="Tool 2" Foreground="White"/></Button> -->
+	<!-- 	</StackPanel> -->
+	<!-- </pelican:Header> -->
+	
 	<Grid 
 		RowDefinitions="*,*"
 		ColumnDefinitions="*,*"

@@ -21,6 +21,9 @@
       <DependentUpon>PlayTemplate.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Header.axaml.cs">
+      <DependentUpon>Header.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   
 </Project>
