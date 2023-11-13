@@ -16,8 +16,7 @@
 		DockPanel.Dock="Top" Grid.Row="0" Grid.ColumnSpan="2"
 		Background="MidnightBlue"
 		Router="{Binding Router}"
-		>
-	</pelican:NavigationBar>
+		/>
 	
 	<Rectangle Fill="Yellow"/>
 	

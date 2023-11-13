@@ -15,51 +15,34 @@
 			<Grid
 				Background="{TemplateBinding Background}"
 			>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="*"/>
-				</Grid.RowDefinitions>
-					
 				<Grid
-					Grid.Row="0"
-					Height="40"
 					HorizontalAlignment="Stretch"
-					ColumnDefinitions="40,*"
-					Background="MidnightBlue"
+					VerticalAlignment="Stretch"
+					ColumnDefinitions="40,*,Auto"
+					Background="{TemplateBinding Background}"
 				>
-					<!-- <Rectangle -->
-					<!-- 	Grid.Column="0" -->
-					<!-- 	Grid.Row="0" -->
-					<!-- 	HorizontalAlignment="Stretch" -->
-					<!-- 	VerticalAlignment="Stretch" -->
-					<!-- 	Fill="Red" -->
-					<!-- /> -->
-					<Viewbox 
+					<pelican:BackButton
 						Grid.Column="0"
-						Grid.Row="0"
-						Stretch="UniformToFill"
-						Tapped="InputElement_OnTapped"
-						IsVisible="{Binding Router.CanPop, RelativeSource={RelativeSource AncestorType={x:Type pelican:NavigationStackView}}}"
-					>
-						<materialIcons:MaterialIcon Kind="ChevronLeft" Foreground="White" Background="Transparent"/>
-					</Viewbox>
+						Background="{TemplateBinding Background}"
+						Foreground="{TemplateBinding Foreground}"
+						Router="{TemplateBinding Router}"
+					/>
 					<TextBlock
-						Grid.Column="1"
-						Text="Hello" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						Grid.Column="1" 
+						Text="Title"
+						Background="{TemplateBinding Background}"
+						Foreground="{TemplateBinding Foreground}"
+						VerticalAlignment="Center"
+					/>
+					<ContentPresenter
+						Grid.Column="2"
+						Content="{TemplateBinding ToolbarContent}"
+						Background="{TemplateBinding Background}"
+						Foreground="{TemplateBinding Foreground}"
+						HorizontalAlignment="Right"
+					/>
 				</Grid>
-					
-				<!-- <ContentPresenter Grid.Row="1" Name="fred" -->
-				<!-- 	ContentTemplate="{TemplateBinding ContentTemplate}" -->
-				<!-- 	Content="{TemplateBinding Content}" -->
-				<!-- 	VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" -->
-				<!-- 	HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" -->
-				<!-- /> -->
-						
-				<!-- <ContentPresenter  -->
-				<!-- 	Grid.Row="1"  -->
-				<!-- 	Content="{TemplateBinding Content}" -->
-				<!-- /> -->
-						
+				
 				<ContentPresenter 
 					Grid.Row="1" 
 					Content="{TemplateBinding Content}"
@@ -69,14 +52,5 @@
 		</ControlTemplate>
 		
 	</UserControl.Template>
-	
-	
-
-	<!-- <UserControl.Content> -->
-	<!-- 	<Grid ColumnDefinitions="*,*"> -->
-	<!-- 		<Rectangle Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Green"/> -->
-	<!-- 		<Rectangle Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Yellow"/> -->
-	<!-- 	</Grid> -->
-	<!-- </UserControl.Content> -->
 	
 </UserControl>
