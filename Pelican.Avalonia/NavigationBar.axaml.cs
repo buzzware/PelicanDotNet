@@ -32,4 +32,27 @@ public partial class NavigationBar : UserControl {
 	public NavigationBar() {
 		InitializeComponent();
 	}
+	
+	private string? _titleText;
+	public static readonly DirectProperty<NavigationBar, string?> TitleTextProperty =
+		AvaloniaProperty.RegisterDirect<NavigationBar, string?>(
+			nameof(TitleText),
+			o => o.TitleText,
+			(o, v) => o.TitleText = v);
+	public string? TitleText {
+		get => _titleText;
+		set => SetAndRaise(TitleTextProperty, ref _titleText, value);
+	}
+	
+	private int _backButtonSize = 40;
+	public static readonly DirectProperty<NavigationBar, int> BackButtonSizeProperty =
+		AvaloniaProperty.RegisterDirect<NavigationBar, int>(
+			nameof(BackButtonSize),
+			o => o.BackButtonSize,
+			(o, v) => o.BackButtonSize = v);
+	public int BackButtonSize {
+		get => _backButtonSize;
+		set => SetAndRaise(BackButtonSizeProperty, ref _backButtonSize, value);
+	}
+	
 }

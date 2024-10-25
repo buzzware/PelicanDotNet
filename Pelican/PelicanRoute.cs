@@ -22,12 +22,17 @@ public class PelicanRoute {
 	public PelicanRoute(string path)
 	{
 		var parts = path.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-		_segments = parts.Select(PelicanRouteSegment.FromPathSegment).ToImmutableList();
+		_segments = parts.Select(PelicanRouteSegment.FromPath).ToImmutableList();
 	}
 
 	public PelicanRoute PushSegment(PelicanRouteSegment segment)
 	{
 		return new PelicanRoute(_segments.Add(segment));
+	}
+
+	public PelicanRoute ReplaceSegment(PelicanRouteSegment segment)
+	{
+		return new PelicanRoute(_segments.Any() ? _segments.SetItem(_segments.Count-1,segment) : (new []{segment}).ToImmutableList());
 	}
 
 	public PelicanRoute PopSegment()

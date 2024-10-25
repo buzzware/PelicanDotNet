@@ -6,36 +6,45 @@
 	xmlns:pelican="clr-namespace:Pelican.Avalonia"
 	mc:Ignorable="d"
 	d:DesignWidth="400"
-	d:DesignHeight="40"
+	d:DesignHeight="60"
 	x:Class="Pelican.Avalonia.NavigationBar"
-	Height="40"
-	Padding="4"
+	Padding="0"
+	Margin="0"
 	Background="Black"
 	Foreground="White"
+	FontSize="16"
 >
 	<UserControl.Template>
 		<ControlTemplate>
 			<Grid
 				HorizontalAlignment="Stretch"
 				VerticalAlignment="Stretch"
-				ColumnDefinitions="40,*,Auto"
+				ColumnDefinitions="Auto,*,Auto"
+				RowDefinitions="Auto,*"
 				Background="{TemplateBinding Background}"
 			>
 				<pelican:BackButton
 					Grid.Column="0"
+					Grid.Row="0"
+					Width="{TemplateBinding BackButtonSize}"
+					Height="{TemplateBinding BackButtonSize}"
 					Background="{TemplateBinding Background}"
 					Foreground="{TemplateBinding Foreground}"
 					Router="{TemplateBinding Router}"
+					Margin="0,0,8,0"
 				/>
 				<TextBlock
-					Grid.Column="1" 
-					Text="Title"
-					Background="{TemplateBinding Background}"
+					Grid.Column="1"
+					Grid.Row="0"
+					Text="{TemplateBinding TitleText}"
+					FontSize="{TemplateBinding FontSize}"
 					Foreground="{TemplateBinding Foreground}"
 					VerticalAlignment="Center"
 				/>
 				<ContentPresenter
 					Grid.Column="2"
+					Grid.Row="0"
+					Grid.RowSpan="2"
 					Content="{TemplateBinding Content}"
 					Background="{TemplateBinding Background}"
 					Foreground="{TemplateBinding Foreground}"

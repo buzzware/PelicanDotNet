@@ -26,14 +26,18 @@ public class PelicanRouterState : INotifyPropertyChanged {
 	
 	public void Push(string segmentPath)
 	{
-		var segment = PelicanRouteSegment.FromPathSegment(segmentPath);
+		var segment = PelicanRouteSegment.FromPath(segmentPath);
 		Push(segment);
 	}
 
 	public void Push(PelicanRouteSegment segment) {
 		Route = Route?.PushSegment(segment) ?? new PelicanRoute(new []{segment});
 	}
-
+	
+	public void Replace(PelicanRouteSegment segment) {
+		Route = Route?.ReplaceSegment(segment) ?? new PelicanRoute(new []{segment});
+	}
+	
 	public PelicanRouteSegment Pop()
 	{
 		if (!_route?.Segments.Any() ?? true)

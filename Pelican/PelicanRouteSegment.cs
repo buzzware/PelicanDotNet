@@ -13,11 +13,11 @@ public static class MapExtensions
 
 public class PelicanRouteSegment
 {
-    public string Name { get; private set; }
+    public string? Name { get; private set; }
     public IReadOnlyDictionary<string, string> Pars { get; private set; }
     public IReadOnlyDictionary<string, string> Options { get; private set; }
 
-    public PelicanRouteSegment(string name, IReadOnlyDictionary<string, string>? pars=null, IReadOnlyDictionary<string, string>? options=null)
+    public PelicanRouteSegment(string? name, IReadOnlyDictionary<string, string>? pars=null, IReadOnlyDictionary<string, string>? options=null)
     {
         Name = name;
         Pars = pars==null ? ImmutableDictionary<string, string>.Empty : pars.ToImmutableDictionary();
@@ -49,7 +49,7 @@ public class PelicanRouteSegment
         return parts[0];
     }
 
-    public static PelicanRouteSegment FromPathSegment(string path) {
+    public static PelicanRouteSegment FromPath(string path) {
         var parts = path.Split('+');
         var nameAndPars = parts[0];
         var optionsStr = parts.Length > 1 ? parts[1] : "";
@@ -61,11 +61,11 @@ public class PelicanRouteSegment
         return new PelicanRouteSegment(name, pars, options);
     }
 
-    public string ToRoutablePath() {
+    public string? ToRoutablePath() {
         return ToPath(includeOptions: false);
     }
     
-    public string ToPath(bool includeOptions = true, PelicanRouteSegment definition = null)
+    public string? ToPath(bool includeOptions = true, PelicanRouteSegment definition = null)
     {
         if (definition != null && definition.Name != Name)
             throw new Exception("definition name must match path name");

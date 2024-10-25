@@ -35,6 +35,6 @@ public class RouteTests {
 
 	[Test]
 	public void Test3() {	// PelicanRouteSegment deserialise
-		Assert.That(PelicanRouteSegment.FromPathSegment("page;b=2;a=1+y=9;x=10").ToPath(),Is.EqualTo("page;a=1;b=2+x=10;y=9"));
+		Assert.That(PelicanRouteSegment.FromPath("page;b=2;a=1+y=9;x=10").ToPath(),Is.EqualTo("page;a=1;b=2+x=10;y=9"));
 	}
 }

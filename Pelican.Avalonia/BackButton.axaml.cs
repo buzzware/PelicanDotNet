@@ -6,9 +6,7 @@ using Avalonia.Markup.Xaml;
 
 namespace Pelican.Avalonia; 
 
-public partial class BackButton : Button {
-	
-	protected override Type StyleKeyOverride => typeof(Button); // this is required when subclassing a component for the subclass to work like its parent
+public partial class BackButton : ContentButton {
 	
 	public BackButton() {
 		InitializeComponent();
@@ -48,6 +46,7 @@ public partial class BackButton : Button {
 	// 	Content = page;
 	// }
 	private void InputElement_OnTapped(object? sender, TappedEventArgs e) {
-		Router?.Pop();
+		if (Router?.CanPop ?? false)
+			Router?.Pop();
 	}
 }

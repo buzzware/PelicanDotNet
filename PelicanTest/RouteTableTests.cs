@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Pelican;
 using Pelican.Utilities;
 using Serilog;
@@ -38,6 +41,9 @@ internal class TestPage : BindableBase, IPelicanPage {
 internal class TestPageModel : BindableBase, IPelicanPageModel {
 
 	public List<string> TestEvents = new List<string>();
+	
+	public PelicanRouteSegment Segment { get; set; }
+	
 	public void RecordEvent(string ev) {
 		TestEvents.Add(ev);
 		Log.Debug(ev);
@@ -51,7 +57,7 @@ internal class TestPageModel : BindableBase, IPelicanPageModel {
 		RecordEvent($"OnEnter popping:{popping} segment:{segment.ToPath()} data:{data}");
 	}
 
-	public async Task<OnExitResult?> OnExit(bool pushing) {
+	public async Task<OnExitResult?> OnExit(bool pushing, object? data) {
 		RecordEvent($"OnExit pushing:{pushing}");
 		return null;
 	}
@@ -85,7 +91,7 @@ internal class OnePageModel : TestPageModel {
 internal class TwoPageModel : TestPageModel {
 }
 
-public class RouteTable2Tests {
+public class RouteTableTests {
 	
 	private static RouteTable BuildTable() {
 		return new RouteTable(
@@ -153,6 +159,34 @@ public class RouteTable2Tests {
 		var menuPageModel2 = router.CurrentPage.DataContext as MenuPageModel;
 		Assert.That(menuPageModel2,Is.SameAs(menuPageModel));
 	}
+
+	public static async Task<RouteBuilder> DoMatch(RouteTable table, PelicanRouteSegment segment) {
+		var matchFunc = table.Match(segment);
+		var rb = new RouteBuilder(segment);
+		await matchFunc.Invoke(rb);
+		return rb;
+	}
+	
+	[Test]
+	public async Task MatchTest() {
+		var table = BuildTable();
+		
+		PelicanRouteSegment segment;
+		RouteBuilder rb;
+		
+		segment = PelicanRouteSegment.FromPath("one");
+		rb = await DoMatch(table, segment);
+		Assert.That(rb.PageInstance,Is.InstanceOf<OnePage>());
+		Assert.That(rb.PageModel,Is.InstanceOf<OnePageModel>());
+		Assert.That(rb.Segment,Is.SameAs(segment));
+		
+		segment = PelicanRouteSegment.FromPath("one;id=123");
+		rb = await DoMatch(table, segment);
+		Assert.That(rb.PageInstance,Is.InstanceOf<OnePage>());
+		Assert.That(rb.PageModel,Is.InstanceOf<OnePageModel>());
+		Assert.That(rb.Segment,Is.SameAs(segment));
+	}
+	
 }
 
 

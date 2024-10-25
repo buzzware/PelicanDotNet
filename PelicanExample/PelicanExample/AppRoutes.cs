@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Pelican;
 using PelicanExample.Pages;
 
+namespace PelicanExample;
+
 public static class AppRoutes {
 	
 	public const string MENU = "menu";

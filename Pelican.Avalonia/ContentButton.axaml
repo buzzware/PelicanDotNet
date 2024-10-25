@@ -1,0 +1,27 @@
+<ContentControl
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	d:DesignWidth="60"
+	d:DesignHeight="24"
+	Cursor="Hand"
+	x:Class="Pelican.Avalonia.ContentButton"
+>
+	<ContentControl.Template>
+		<ControlTemplate>	
+			<Viewbox
+				Stretch="Uniform" 
+				HorizontalAlignment="Stretch" 
+				VerticalAlignment="Stretch"
+			>
+				<ContentPresenter 
+					Content="{TemplateBinding Content}" 
+					Background="{TemplateBinding Background}"
+					Foreground="{TemplateBinding Foreground}"
+					/>
+			</Viewbox>
+		</ControlTemplate>
+	</ContentControl.Template>
+</ContentControl>
