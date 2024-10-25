@@ -5,10 +5,11 @@ using Serilog;
 
 namespace Pelican;
 
-public class RouteTable2 {
+public class RouteTable {
+	
 	public Dictionary<string, Func<RouteBuilder, Task<RouteBuilder>>> Routes { get; }
 
-	public RouteTable2(Dictionary<string, Func<RouteBuilder, Task<RouteBuilder>>> routes) {
+	public RouteTable(Dictionary<string, Func<RouteBuilder, Task<RouteBuilder>>> routes) {
 		Routes = routes;
 	}
 
@@ -55,12 +56,12 @@ public class OnExitResult {
 }
 
 
-public class PelicanRouter2 : BindableBase {
+public class PelicanRouter : BindableBase {
 	
 	private PelicanRouterState State { get; }
 	public PelicanRoute Route => State.Route;
 
-	public RouteTable2 RouteTable { get; }
+	public RouteTable RouteTable { get; }
 
 	private ImmutableList<PageStackRecord> _pageStack = ImmutableList<PageStackRecord>.Empty;
 	private PelicanRoute? _cacheRoute;
@@ -76,13 +77,13 @@ public class PelicanRouter2 : BindableBase {
 	// 	PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 	// }
 	
-	public PelicanRouter2(RouteTable2 routeTable) {
+	public PelicanRouter(RouteTable routeTable) {
 		RouteTable = routeTable;
 		State = new PelicanRouterState();
 		State.PropertyChanged += StateOnPropertyChanged;
 	}
 
-	~PelicanRouter2() {
+	~PelicanRouter() {
 		State.PropertyChanged -= StateOnPropertyChanged;
 	}
 

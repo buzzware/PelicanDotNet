@@ -14,13 +14,13 @@ public partial class BackButton : Button {
 		InitializeComponent();
 	}
 
-	private PelicanRouter2? _router;
-	public static readonly DirectProperty<BackButton, PelicanRouter2?> RouterProperty =
-		AvaloniaProperty.RegisterDirect<BackButton, PelicanRouter2?>(
+	private PelicanRouter? _router;
+	public static readonly DirectProperty<BackButton, PelicanRouter?> RouterProperty =
+		AvaloniaProperty.RegisterDirect<BackButton, PelicanRouter?>(
 			nameof(Router),
 			o => o.Router,
 			(o, v) => o.Router = v);
-	public PelicanRouter2? Router
+	public PelicanRouter? Router
 	{
 		get => _router;
 		set {
@@ -33,7 +33,7 @@ public partial class BackButton : Button {
 		}
 	}
 
-	private void PelicanRouterChanged(PelicanRouter2? value) {
+	private void PelicanRouterChanged(PelicanRouter? value) {
 	}
 
 	private async void PelicanRouterOnPropertyChanged(object? sender, PropertyChangedEventArgs e) {

@@ -87,8 +87,8 @@ internal class TwoPageModel : TestPageModel {
 
 public class RouteTable2Tests {
 	
-	private static RouteTable2 BuildTable() {
-		return new RouteTable2(
+	private static RouteTable BuildTable() {
+		return new RouteTable(
 			new Dictionary<string, Func<RouteBuilder, Task<RouteBuilder>>> {
 				["login"] = async rb => rb.Page<LoginPage>(new LoginPageModel()),
 				["menu"] = async rb => rb.Page<MenuPage>(new MenuPageModel()),
@@ -110,7 +110,7 @@ public class RouteTable2Tests {
 	[Test]
 	public async Task PushPushPopTest() {
 		var table = BuildTable();
-		var router = new PelicanRouter2(table);
+		var router = new PelicanRouter(table);
 		var currentPageChanges = 0;
 		//router.PropertyChanged += (sender, args) => if (args.Name) menuPageChanges++;
 		router.PropertyChanged += (sender, args) => {

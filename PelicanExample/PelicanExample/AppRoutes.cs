@@ -13,10 +13,10 @@ public static class AppRoutes {
 	public const string FOUR = "four";
 	public const string SETTINGS = "settings";
 	
-	private static RouteTable2? _routeTable;
-	public static RouteTable2 RouteTable() {
+	private static RouteTable? _routeTable;
+	public static RouteTable RouteTable() {
 		if (_routeTable == null) {
-			_routeTable = new RouteTable2(
+			_routeTable = new RouteTable(
 				new Dictionary<string, Func<RouteBuilder, Task<RouteBuilder>>> {
 					[MENU] = async rb => rb.Page<MenuPage>(new MenuPageModel()),
 					[ONE] = async rb => rb.Page<OnePage>(new OnePageModel()),

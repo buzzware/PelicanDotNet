@@ -5,5 +5,5 @@ namespace PelicanExample.Utilities;
 
 public class ViewModelBase : BindableBase
 {
-	public PelicanRouter2 Router => AppCommon.Router;
+	public PelicanRouter Router => AppCommon.Router;
 }

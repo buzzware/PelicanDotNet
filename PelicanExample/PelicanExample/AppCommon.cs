@@ -8,10 +8,10 @@ namespace PelicanExample;
 
 public static class AppCommon {
 
-	public static PelicanRouter2 Router { get; private set; }
+	public static PelicanRouter Router { get; private set; }
 	
 	public static async void Setup() {
-		Router = new PelicanRouter2(AppRoutes.RouteTable());
+		Router = new PelicanRouter(AppRoutes.RouteTable());
 		await Router.Push(new PelicanRouteSegment(AppRoutes.MENU));
 	}
 }

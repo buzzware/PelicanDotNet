@@ -8,13 +8,13 @@ public partial class NavigationBar : UserControl {
 	
 	protected override Type StyleKeyOverride => typeof(UserControl); // this is required when subclassing a component for the subclass to work like its parent
 	
-	private PelicanRouter2? _router;
-	public static readonly DirectProperty<NavigationBar, PelicanRouter2?> RouterProperty =
-		AvaloniaProperty.RegisterDirect<NavigationBar, PelicanRouter2?>(
+	private PelicanRouter? _router;
+	public static readonly DirectProperty<NavigationBar, PelicanRouter?> RouterProperty =
+		AvaloniaProperty.RegisterDirect<NavigationBar, PelicanRouter?>(
 			nameof(Router),
 			o => o.Router,
 			(o, v) => o.Router = v);
-	public PelicanRouter2? Router
+	public PelicanRouter? Router
 	{
 		get => _router;
 		set {
